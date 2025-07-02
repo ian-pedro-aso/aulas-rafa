@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://diks1heoo45ew"]
+
+[ext_resource type="Script" uid="uid://cu4asw57ceg4c" path="res://scripts/gas_projectile.gd" id="1_j42ny"]
+[ext_resource type="Texture2D" uid="uid://cnkr6wcbijwsc" path="res://assets/Sprites/veneno1.png" id="2_4kmw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr6gl"]
+atlas = ExtResource("2_4kmw4")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yly3p"]
+atlas = ExtResource("2_4kmw4")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it7ly"]
+atlas = ExtResource("2_4kmw4")
+region = Rect2(16, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jf6f"]
+atlas = ExtResource("2_4kmw4")
+region = Rect2(16, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50spl"]
+atlas = ExtResource("2_4kmw4")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyfbr"]
+atlas = ExtResource("2_4kmw4")
+region = Rect2(24, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myhny"]
+atlas = ExtResource("2_4kmw4")
+region = Rect2(24, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7la4"]
+atlas = ExtResource("2_4kmw4")
+region = Rect2(24, 24, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cbaxx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr6gl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yly3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it7ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jf6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50spl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyfbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myhny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7la4")
+}],
+"loop": true,
+"name": &"anim",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_daw04"]
+radius = 7.0
+
+[node name="GasProjectile" type="Area2D"]
+collision_layer = 64
+collision_mask = 6
+script = ExtResource("1_j42ny")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(2.0625, 2.0625)
+sprite_frames = SubResource("SpriteFrames_cbaxx")
+animation = &"anim"
+autoplay = "anim"
+frame_progress = 0.918801
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_daw04")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(0.8, 0.8)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

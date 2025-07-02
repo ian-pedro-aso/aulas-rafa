@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://de1d4wksi1hoi"]
+
+[ext_resource type="Script" uid="uid://umk5np2w0evq" path="res://scripts/refil_item.gd" id="1_apbjg"]
+[ext_resource type="Texture2D" uid="uid://clud2t4c5owrb" path="res://assets/Sprites/refil.png" id="2_usbo8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ss523"]
+radius = 11.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apbjg"]
+atlas = ExtResource("2_usbo8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usbo8"]
+atlas = ExtResource("2_usbo8")
+region = Rect2(0, 0, 32, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2m14c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apbjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usbo8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="RefilItem" type="Area2D" groups=["HUD"]]
+collision_layer = 64
+script = ExtResource("1_apbjg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ss523")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_2m14c")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.709168
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

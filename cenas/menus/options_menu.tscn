@@ -1,0 +1,142 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpdemn5f8xphu"]
+
+[ext_resource type="Script" uid="uid://b7ldvvjq1oary" path="res://scripts/options_menu.gd" id="1_hedl5"]
+[ext_resource type="Texture2D" uid="uid://ddwhxoue87lnd" path="res://assets/Sprites/Background 1.png" id="1_t1lix"]
+[ext_resource type="FontFile" uid="uid://b4w1mb76adnv4" path="res://assets/ui/Creepster-Regular.ttf" id="2_4gmlt"]
+[ext_resource type="AudioStream" uid="uid://cftehrg7uoryw" path="res://assets/audio/bg1.mp3" id="4_7ag0k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ogda5"]
+texture = ExtResource("1_t1lix")
+modulate_color = Color(0.497474, 0.497474, 0.497474, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6bffs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwtu1"]
+bg_color = Color(0.04022, 0.0556063, 0.0556065, 0.670588)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrf4u"]
+bg_color = Color(0.04022, 0.0556063, 0.0556065, 0.670588)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqwpw"]
+bg_color = Color(0.0666667, 0.0862745, 0.0862745, 0.670588)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hedl5")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ogda5")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 63.0
+offset_bottom = 36.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.686275, 0.0666667, 0.0666667, 0.317647)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_4gmlt")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6bffs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vwtu1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rrf4u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nqwpw")
+text = "Voltar"
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.5
+offset_top = -66.5
+offset_right = 80.5
+offset_bottom = 66.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -58.0
+offset_right = 75.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.686275, 0.0666667, 0.0666667, 0.317647)
+theme_override_fonts/font = ExtResource("2_4gmlt")
+text = "analogico es: andar"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.686275, 0.0666667, 0.0666667, 0.317647)
+theme_override_fonts/font = ExtResource("2_4gmlt")
+text = "Analogico Di: MIrar"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.686275, 0.0666667, 0.0666667, 0.317647)
+theme_override_fonts/font = ExtResource("2_4gmlt")
+text = "Y-recomeçar "
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.686275, 0.0666667, 0.0666667, 0.317647)
+theme_override_fonts/font = ExtResource("2_4gmlt")
+text = "B - atirar"
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.686275, 0.0666667, 0.0666667, 0.317647)
+theme_override_fonts/font = ExtResource("2_4gmlt")
+text = "x- Correr"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7ag0k")
+volume_db = -14.054
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="Button" to="." method="_on_options_pressed"]

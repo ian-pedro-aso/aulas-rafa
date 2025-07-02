@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bipxvp4wabhd"]
+
+[ext_resource type="Script" uid="uid://cp3a5ad32x0yf" path="res://scripts/spray_item.gd" id="1_ophon"]
+[ext_resource type="Texture2D" uid="uid://b8kd5jbe3avle" path="res://assets/Sprites/spray1.png" id="2_1lqur"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ujhjy"]
+radius = 13.0384
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ophon"]
+atlas = ExtResource("2_1lqur")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lqur"]
+atlas = ExtResource("2_1lqur")
+region = Rect2(0, 0, 32, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvrj6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ophon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lqur")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="SprayItem" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_ophon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ujhjy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uvrj6")
+autoplay = "default"
+frame_progress = 0.370976
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6wnse8ga1rb4"]
+
+[ext_resource type="Script" uid="uid://bkq4fhpx4n1pt" path="res://scripts/med_kit.gd" id="1_1qj1l"]
+[ext_resource type="Texture2D" uid="uid://c1pfclvcxptw3" path="res://assets/ui/full_heart.png.png" id="2_gs1gy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gs1gy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6225q"]
+atlas = ExtResource("2_gs1gy")
+region = Rect2(0, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ply6t"]
+atlas = ExtResource("2_gs1gy")
+region = Rect2(0, 0, 17, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_28hkd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6225q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ply6t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="MedKit" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_1qj1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gs1gy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_28hkd")
+frame_progress = 0.760467

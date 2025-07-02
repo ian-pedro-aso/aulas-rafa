@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpgf7704tbraw"]
+
+[ext_resource type="Script" uid="uid://dhpwjo1qa1h00" path="res://scripts/chaves/teleporte_2.gd" id="1_on8mg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6oyd7"]
+radius = 18.0
+
+[node name="Teleporte2" type="Area2D"]
+script = ExtResource("1_on8mg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6oyd7")
